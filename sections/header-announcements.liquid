@@ -34,6 +34,15 @@
       {% content_for 'blocks' %}
     </div>
   </announcement-bar-component>
+
+  <div class="announcement-bar__ship-to">
+    <span class="announcement-bar__ship-to-label">Ship To:</span>
+    <span
+      class="announcement-bar__ship-to-flag"
+      style="background-image: url({{ localization.country | image_url: width: 32 }});"
+      title="{{ localization.country.name }}"
+    ></span>
+  </div>
 </aside>
 
 {% stylesheet %}
@@ -118,6 +127,42 @@
   .announcement-bar__link {
     position: absolute;
     inset: 0;
+  }
+
+  .announcement-bar {
+    position: relative;
+  }
+
+  .announcement-bar__ship-to {
+    position: absolute;
+    inset-inline-end: var(--padding-lg);
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-foreground);
+
+    @media screen and (max-width: 749px) {
+      display: none;
+    }
+  }
+
+  .announcement-bar__ship-to-label {
+    white-space: nowrap;
+  }
+
+  .announcement-bar__ship-to-flag {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    flex-shrink: 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   }
 {% endstylesheet %}
 

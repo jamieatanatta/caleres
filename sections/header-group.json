@@ -14,51 +14,21 @@
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
-        "announcement_BxgCk9": {
+        "announcement_main": {
           "type": "_announcement",
           "settings": {
-            "text": "FREE SHIPPING ON ORDERS $75+",
-            "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "loose",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "announcement_promo2": {
-          "type": "_announcement",
-          "settings": {
-            "text": "FREE RETURNS ON ALL ORDERS",
-            "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "loose",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "announcement_promo3": {
-          "type": "_announcement",
-          "settings": {
-            "text": "NEW STYLES ADDED WEEKLY",
-            "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "loose",
-            "case": "uppercase"
+            "text": "Spring New Arrivals Just Landed. Don't Miss the Drop | <strong><u>SHOP NOW</u></strong>",
+            "link": "/collections/new",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "weight": "500",
+            "letter_spacing": "normal",
+            "case": "none"
           },
           "blocks": {}
         }
       },
-      "block_order": [
-        "announcement_BxgCk9",
-        "announcement_promo2",
-        "announcement_promo3"
-      ],
+      "block_order": ["announcement_main"],
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 5,
@@ -98,8 +68,8 @@
             "featured_products_aspect_ratio": "4 / 5",
             "featured_collections_aspect_ratio": "16 / 9",
             "image_border_radius": 0,
-            "navigation_bar": false,
-            "color_scheme_navigation_bar": "",
+            "navigation_bar": true,
+            "color_scheme_navigation_bar": "scheme-1",
             "drawer_accordion": false,
             "drawer_accordion_expand_first": false,
             "drawer_dividers": false
@@ -108,27 +78,27 @@
         }
       },
       "settings": {
-        "logo_position": "center",
+        "logo_position": "left",
         "menu_position": "center",
-        "menu_row": "bottom",
+        "menu_row": "top",
         "show_search": true,
         "search_position": "right",
         "search_row": "top",
-        "show_country": false,
-        "country_selector_style": false,
+        "show_country": true,
+        "country_selector_style": true,
         "show_language": false,
         "localization_font": "heading",
         "localization_font_size": "0.875rem",
         "localization_position": "right",
         "localization_row": "top",
         "section_width": "page-width",
-        "section_height": "compact",
+        "section_height": "standard",
         "enable_sticky_header": "always",
-        "divider_width": 1,
+        "divider_width": 0,
         "divider_size": "full-width",
-        "border_width": 0,
+        "border_width": 1,
         "color_scheme_top": "scheme-1",
-        "color_scheme_bottom": "",
+        "color_scheme_bottom": "scheme-1",
         "color_scheme_transparent": "scheme-6",
         "enable_transparent_header_home": false,
         "home_color_scheme": "inverse",

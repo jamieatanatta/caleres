@@ -937,6 +937,13 @@
     }
   }
 
+  /* Highlight SALE nav link in brand primary (red/pink) */
+  .header-menu .menu-list__link[href*="/collections/sale"],
+  .header-menu .menu-list__link[href*="/pages/sale"] {
+    color: var(--color-primary) !important;
+    font-weight: 600;
+  }
+
   /* Optimize layout performance for hidden menus */
   .header-menu .menu-list__submenu {
     content-visibility: auto;
