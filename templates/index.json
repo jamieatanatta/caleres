@@ -12,16 +12,16 @@
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
-        "text_YLPk4p": {
+        "heading_text": {
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
+            "text": "<p>STRAPS FOR SPRING...</p>",
             "width": "fit-content",
-            "max_width": "normal",
+            "max_width": "narrow",
             "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
+            "type_preset": "h1",
+            "font": "var(--font-heading--family)",
             "font_size": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
@@ -38,14 +38,40 @@
           },
           "blocks": {}
         },
-        "button_H9gpTf": {
+        "subtitle_text": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Groundbreaking.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cta_button": {
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
+            "label": "Shop Sandals",
+            "link": "",
             "open_in_new_tab": false,
-            "style_class": "button-secondary",
+            "style_class": "button",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
@@ -55,8 +81,9 @@
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "heading_text",
+        "subtitle_text",
+        "cta_button"
       ],
       "name": "t:names.hero",
       "settings": {
@@ -68,22 +95,24 @@
         "vertical_on_mobile": true,
         "horizontal_alignment": "space-between",
         "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "flex-start",
+        "gap": 16,
         "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 90,
         "color_scheme": "scheme-6",
         "toggle_overlay": true,
-        "overlay_color": "#12121266",
+        "overlay_color": "#00000033",
         "overlay_style": "solid",
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "custom_mobile_media": true,
+        "media_type_1_mobile": "image",
+        "padding-block-start": 40,
+        "padding-block-end": 40
       }
     },
     "product_list_fa6P9H": {
