@@ -1119,9 +1119,10 @@
     z-index: var(--layer-header, 100);
   }
 
-  /* 1380px max content width: reduce page-margin from 40px to 30px in header only */
+  /* 1380px max content width: directly cap the section grid center column */
   @media screen and (min-width: 750px) {
-    .header-section {
+    .header-section .section {
+      --full-page-grid-central-column-width: min(1380px, calc(100% - 60px));
       --page-margin: 30px;
     }
   }
