@@ -400,7 +400,7 @@
 
 {% stylesheet %}
   body {
-    --header-height: 60px;
+    --header-height: 90px;
     --header-group-height: var(--header-height);
     --transparent-header-offset-boolean: 0; /* stylelint-disable-line declaration-property-value-disallowed-list */
   }
@@ -1112,11 +1112,18 @@
     font-size: var(--menu-localization-font-size);
   }
 
-  /* Circus NY overrides: header drop shadow */
+  /* Circus NY overrides: header drop shadow and content max-width */
   .header-section {
     box-shadow: rgba(51, 50, 50, 0.5) 0px 4px 16px 0px;
     position: relative;
     z-index: var(--layer-header, 100);
+  }
+
+  /* 1380px max content width: reduce page-margin from 40px to 30px in header only */
+  @media screen and (min-width: 750px) {
+    .header-section {
+      --page-margin: 30px;
+    }
   }
 
   /* Circus NY overrides: hide account and wishlist on mobile */

@@ -342,6 +342,7 @@
 
     gap: 0;
     margin-inline: calc(-1 * var(--menu-horizontal-gap) / 2);
+    justify-content: space-evenly;
   }
 
   .overflow-menu {
@@ -664,11 +665,6 @@
   .mega-menu__submenu {
     /* preserves the inherited grid layout when this submenu wrapper is used */
     display: contents;
-  }
-
-  /* Circus NY overrides: even menu item distribution */
-  .menu-list__list {
-    justify-content: space-around;
   }
 
   /* Circus NY overrides: letter-spacing on nav links */
