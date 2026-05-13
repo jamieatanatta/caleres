@@ -1111,6 +1111,22 @@
     font-family: var(--menu-localization-font);
     font-size: var(--menu-localization-font-size);
   }
+
+  /* Circus NY overrides: header drop shadow */
+  .header-section {
+    box-shadow: rgba(51, 50, 50, 0.5) 0px 4px 16px 0px;
+    position: relative;
+    z-index: var(--layer-header, 100);
+  }
+
+  /* Circus NY overrides: hide account and wishlist on mobile */
+  @media screen and (max-width: 749px) {
+    .account-button,
+    .header-actions__wishlist,
+    shopify-account {
+      display: none !important; /* stylelint-disable-line declaration-no-important */
+    }
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}

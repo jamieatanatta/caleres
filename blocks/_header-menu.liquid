@@ -665,6 +665,37 @@
     /* preserves the inherited grid layout when this submenu wrapper is used */
     display: contents;
   }
+
+  /* Circus NY overrides: even menu item distribution */
+  .menu-list__list {
+    justify-content: space-around;
+  }
+
+  /* Circus NY overrides: letter-spacing on nav links */
+  .menu-list__link-title {
+    letter-spacing: 0.25px;
+  }
+
+  /* Circus NY overrides: red color for SALE nav link */
+  .menu-list__link[href*='sale' i] {
+    color: #ff0000;
+  }
+
+  .menu-list__link[href*='sale' i] .menu-list__link-title {
+    color: #ff0000;
+  }
+
+  .menu-list:where(:has(.menu-list__list-item:hover)),
+  .menu-list:where(:has(.menu-list__list-item:focus-within)),
+  .menu-list:where(:has(.menu-list__list-item:not([aria-hidden='true']) .menu-list__link--active)) {
+    .menu-list__link[href*='sale' i] {
+      color: rgb(255 0 0 / var(--opacity-subdued-text));
+    }
+  }
+
+  .menu-list .menu-list__list-item:where(:hover, :focus-within) .menu-list__link[href*='sale' i] {
+    color: #ff0000;
+  }
 {% endstylesheet %}
 
 {% schema %}
