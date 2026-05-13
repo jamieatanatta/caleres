@@ -1125,6 +1125,11 @@
       --full-page-grid-central-column-width: min(1380px, calc(100% - 60px));
       --page-margin: 30px;
     }
+
+    /* 90px fixed height: directly set on the header columns, same approach as width */
+    .header-section .header__row--top .header__columns {
+      height: 90px;
+    }
   }
 
   /* Circus NY overrides: hide account and wishlist on mobile */
