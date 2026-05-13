@@ -99,6 +99,18 @@
     </div>
   {% endif %}
 
+  <a
+    href="/pages/wishlist"
+    class="header-actions__action header-actions__wishlist"
+    aria-label="Wishlist"
+  >
+    <span class="svg-wrapper" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+        <path d="M10 16.5C10 16.5 1.25 11.25 1.25 5.375C1.25 3.09 3.09 1.25 5.375 1.25C6.9 1.25 8.225 2.075 10 3.75C11.775 2.075 13.1 1.25 14.625 1.25C16.91 1.25 18.75 3.09 18.75 5.375C18.75 11.25 10 16.5 10 16.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </a>
+
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
     <script
       src="{{ 'cart-drawer.js' | asset_url }}"
@@ -669,6 +681,32 @@
       opacity: 0;
     }
   }
+  .header-actions__wishlist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-foreground);
+    height: var(--button-size);
+    width: var(--button-size);
+
+    &:hover {
+      color: var(--color-foreground);
+    }
+
+    .svg-wrapper {
+      height: var(--button-size);
+      width: var(--button-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg {
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
+    }
+  }
+
   .header-actions__text {
     display: flex;
     align-items: center;
