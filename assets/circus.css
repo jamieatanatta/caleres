@@ -57,3 +57,42 @@
     border-radius: 0;
   }
 }
+
+/* Featured collection: force zero vertical padding to match source design (492px = 40px header + 32px gap + 420px products) */
+.section-resource-list .spacing-style {
+  --padding-block-start: 0px;
+  --padding-block-end: 0px;
+}
+
+/* Featured collection: product card image aspect ratio matching source portrait cards (~257×321px) */
+.section-resource-list .card-gallery {
+  --gallery-aspect-ratio: 4 / 5;
+}
+
+/* Featured collection: Sale badge font styling matching source --below-image-primary-text-badge-line-height: 16px */
+.section-resource-list .product-badges__badge {
+  font-family: var(--font-body--family);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+/* Featured collection: View all link font styling matching source */
+.section-resource-list .section-resource-list__header .link {
+  font-family: var(--font-body--family);
+  font-size: 14px;
+  color: var(--color-foreground);
+}
+
+/* Featured collection: mobile carousel scroll snap for smooth UX */
+@media screen and (max-width: 749px) {
+  .section-resource-list .resource-list__carousel {
+    scroll-snap-type: x mandatory;
+  }
+
+  .section-resource-list .resource-list__carousel > * {
+    scroll-snap-align: start;
+  }
+}
