@@ -14,30 +14,84 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "menu_wFfCbe": {
+        "menu_support": {
           "type": "menu",
-          "name": "t:names.menu",
           "settings": {
             "menu": "footer",
-            "heading": "",
-            "menu_spacing": 12,
+            "heading": "SUPPORT",
+            "menu_spacing": 0,
             "show_as_accordion": false,
             "accordion_icon": "caret",
             "accordion_dividers": false,
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "heading_preset": "h3",
-            "link_preset": "paragraph",
+            "heading_preset": "h5",
+            "link_preset": "h6",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
-          },
-          "blocks": {}
+          }
         },
-        "group_wErUQf": {
+        "menu_circus": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-the-circus",
+            "heading": "THE CIRCUS",
+            "menu_spacing": 0,
+            "show_as_accordion": false,
+            "accordion_icon": "caret",
+            "accordion_dividers": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "heading_preset": "h5",
+            "link_preset": "h6",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "menu_more": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-more",
+            "heading": "MORE",
+            "menu_spacing": 0,
+            "show_as_accordion": false,
+            "accordion_icon": "caret",
+            "accordion_dividers": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "heading_preset": "h5",
+            "link_preset": "h6",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "menu_legal": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-legal",
+            "heading": "LEGAL",
+            "menu_spacing": 0,
+            "show_as_accordion": false,
+            "accordion_icon": "caret",
+            "accordion_dividers": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "heading_preset": "h5",
+            "link_preset": "h6",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "group_signup": {
           "type": "group",
-          "name": "Join our email list",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -45,8 +99,8 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 6,
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -75,15 +129,14 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_pF6rVi": {
+            "text_promo": {
               "type": "text",
-              "name": "Heading",
               "settings": {
-                "text": "<h2>Join our email list</h2>",
+                "text": "<p><strong>Hear about launches, exclusive offers, secrets and more.</strong></p>",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
+                "alignment": "center",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "",
                 "line_height": "normal",
@@ -98,14 +151,36 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
+              }
             },
-            "text_HafH7P": {
-              "type": "text",
-              "name": "Text",
+            "email_signup_form": {
+              "type": "email-signup",
               "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.</p>",
+                "width": "fill",
+                "custom_width": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "heading": "",
+                "heading_preset": "h3",
+                "border_style": "all",
+                "border_width": 1,
+                "border_radius": 0,
+                "input_type_preset": "paragraph",
+                "style_class": "button",
+                "display_type": "text",
+                "label": "SIGN UP",
+                "integrated_button": false,
+                "button_type_preset": "paragraph",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "text_disclaimer": {
+              "type": "text",
+              "settings": {
+                "text": "<p>This site is protected by reCAPTCHA and the <a href=\"https://policies.google.com/privacy\" target=\"_blank\">Google Privacy Policy</a> and <a href=\"https://policies.google.com/terms\" target=\"_blank\">Google Terms of Service</a> apply.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -124,54 +199,55 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
+              }
+            },
+            "text_copyright": {
+              "type": "text",
+              "settings": {
+                "text": "<p>©2026 Edelman Shoe, Inc. All rights reserved.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
             }
           },
           "block_order": [
-            "text_pF6rVi",
-            "text_HafH7P"
+            "text_promo",
+            "email_signup_form",
+            "text_disclaimer",
+            "text_copyright"
           ]
-        },
-        "email-signup_HafH7P": {
-          "type": "email-signup",
-          "name": "Email Signup",
-          "settings": {
-            "width": "fill",
-            "custom_width": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "heading": "",
-            "heading_preset": "h3",
-            "border_style": "all",
-            "border_width": 1,
-            "border_radius": 100,
-            "input_type_preset": "paragraph",
-            "style_class": "button",
-            "display_type": "text",
-            "label": "Sign up",
-            "integrated_button": false,
-            "button_type_preset": "paragraph",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "menu_wFfCbe",
-        "group_wErUQf",
-        "email-signup_HafH7P"
+        "menu_support",
+        "menu_circus",
+        "menu_more",
+        "menu_legal",
+        "group_signup"
       ],
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
-        "gap": 20,
-        "color_scheme": "scheme-5",
-        "padding-block-start": 36,
-        "padding-block-end": 36
+        "gap": 0,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 28
       }
     },
     "utilities": {

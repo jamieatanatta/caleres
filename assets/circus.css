@@ -112,3 +112,168 @@
     scroll-snap-align: start;
   }
 }
+
+/* ==========================================================================
+   Footer overrides — Circus NY design
+   ========================================================================== */
+
+/* Hide footer-utilities section (copyright/policies/social handled in footer group block) */
+.footer-utilities {
+  display: none;
+}
+
+/* Footer section: remove top padding via !important to override inline spacing-style */
+.footer-content.spacing-style {
+  padding-block-start: 0 !important;
+}
+
+/* Footer grid: desktop 5-column layout (4 menus + 1 wider signup group) */
+@media screen and (min-width: 990px) {
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr) 2fr !important;
+  }
+
+  /* Prevent the last child (5th block) from spanning full width via --isolated-grid-item */
+  .footer-content--isolated-grid-item-desktop > :last-child {
+    grid-column: auto;
+  }
+}
+
+/* Footer grid: tablet 2-column layout */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .footer-content > .group-block {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Footer grid: mobile 2-column layout with email signup first */
+@media screen and (max-width: 749px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .footer-content > .group-block {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  /* Add vertical spacing between 2nd row of menus (3rd and 4th accordion) */
+  .footer-content > accordion-custom:nth-of-type(n+3) {
+    margin-top: 20px;
+  }
+}
+
+/* Footer menu heading typography */
+.footer-content .menu__heading {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Footer menu link typography */
+.footer-content .menu__item {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+}
+
+.footer-content .menu__item a {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Footer menu: zero spacing between menu heading and links list */
+.footer-content .menu:not(:has(.menu__heading--empty)) .details-content {
+  margin-block-start: 0;
+}
+
+/* Footer menu: zero spacing between individual menu items */
+.footer-content .menu__item + .menu__item {
+  margin-block-start: 0;
+}
+
+/* Footer email signup button styling */
+.footer-content .email-signup__button--text {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background-color: #333232;
+  color: #fff;
+  min-height: 44px;
+  min-width: 145px;
+  flex-shrink: 0;
+  border-radius: 0;
+  border: none;
+  padding: 0 16px;
+}
+
+.footer-content .email-signup__button--text:hover {
+  background-color: #e9c437;
+  color: #333232;
+  border-color: #e9c437;
+}
+
+/* Footer email signup input styling */
+.footer-content .email-signup__input {
+  border: 1px solid #333232;
+  border-radius: 0;
+  height: 44px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.footer-content .email-signup__input::placeholder {
+  color: #333232;
+  font-weight: 600;
+}
+
+/* Footer group block: zero internal gap (children spaced via margins) */
+.footer-content > .group-block .group-block-content {
+  gap: 0;
+}
+
+/* Footer promo text (centered text at top of group) */
+.footer-content .group-block .text-block--align-center {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+/* Footer disclaimer and copyright text */
+.footer-content .group-block .email-signup-block ~ .text-block {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 18px;
+}
+
+/* Footer disclaimer text: spacing above */
+.footer-content .group-block .email-signup-block + .text-block {
+  margin-top: 14px;
+}
+
+/* Footer copyright text: spacing above */
+.footer-content .group-block .email-signup-block ~ .text-block + .text-block {
+  margin-top: 20px;
+}
+
+/* Footer: email signup form row should not stack on mobile */
+@media screen and (max-width: 749px) {
+  .footer-content .email-signup__input-group:not(.email-signup__input-group--arrow):not(.email-signup__input-group--underline):not(.email-signup__input-group--integrated) {
+    flex-direction: row;
+  }
+
+  .footer-content .email-signup__button {
+    width: auto;
+  }
+}
