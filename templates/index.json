@@ -798,11 +798,11 @@
       "settings": {
         "collection": "all",
         "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "carousel_on_mobile": true,
         "max_products": 5,
         "columns": 5,
         "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
+        "mobile_card_size": "44cqw",
         "columns_gap": 24,
         "rows_gap": 24,
         "icons_style": "arrow",
