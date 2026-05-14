@@ -36,7 +36,7 @@
         "menu_circus": {
           "type": "menu",
           "settings": {
-            "menu": "footer-the-circus",
+            "menu": "footer",
             "heading": "THE CIRCUS",
             "menu_spacing": 0,
             "show_as_accordion": false,
@@ -55,7 +55,7 @@
         "menu_more": {
           "type": "menu",
           "settings": {
-            "menu": "footer-more",
+            "menu": "footer",
             "heading": "MORE",
             "menu_spacing": 0,
             "show_as_accordion": false,
@@ -74,7 +74,7 @@
         "menu_legal": {
           "type": "menu",
           "settings": {
-            "menu": "footer-legal",
+            "menu": "footer",
             "heading": "LEGAL",
             "menu_spacing": 0,
             "show_as_accordion": false,
