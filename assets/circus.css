@@ -1,5 +1,27 @@
 /* Circus NY — custom overrides */
 
+/* Featured collection: move sale badge below image instead of overlaying it */
+.section-resource-list .card-gallery .product-badges {
+  display: none;
+}
+
+.section-resource-list .product-badges--below-image {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* Featured collection: section heading uppercase per Circus NY style */
+.section-resource-list .section-resource-list__header .h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Featured collection: price bold weight (h5 base = 500, override to 700) */
+.section-resource-list .product-card product-price {
+  font-weight: 700;
+}
+
 /* Featured collection: match source site's 30px page margins (1380px content on 1440px viewport) */
 .section-resource-list {
   --page-margin: 30px;
