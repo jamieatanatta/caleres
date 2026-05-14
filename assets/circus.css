@@ -58,12 +58,6 @@
   }
 }
 
-/* Featured collection: force zero vertical padding to match source design (492px = 40px header + 32px gap + 420px products) */
-.section-resource-list .spacing-style {
-  --padding-block-start: 0px;
-  --padding-block-end: 0px;
-}
-
 /* Featured collection: product card image aspect ratio matching source portrait cards (~257×321px) */
 .section-resource-list .card-gallery {
   --gallery-aspect-ratio: 4 / 5;
