@@ -17,3 +17,43 @@
 .section-resource-list .product-card__media {
   border-radius: 0;
 }
+
+/* Featured collection: sharp card gallery corners (image container) */
+.section-resource-list .card-gallery {
+  border-radius: 0;
+}
+
+.section-resource-list .card-gallery__image {
+  border-radius: 0;
+}
+
+/* Featured collection: sharp product badge corners matching source --shape-sharp-square: 0px */
+.section-resource-list .product-badges__badge {
+  border-radius: 0;
+}
+
+/* Featured collection: View all link underline matching source --text-link-button__text-decoration: underline */
+.section-resource-list .link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section-resource-list .link:hover {
+  text-decoration: underline;
+}
+
+/* Featured collection: product card content spacing for tighter layout */
+.section-resource-list .product-card__content {
+  gap: 4px;
+}
+
+/* Featured collection: responsive mobile adjustments */
+@media screen and (max-width: 749px) {
+  .section-resource-list .product-badges__badge {
+    border-radius: 0;
+  }
+
+  .section-resource-list .card-gallery {
+    border-radius: 0;
+  }
+}
