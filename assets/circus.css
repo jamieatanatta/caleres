@@ -1,1 +1,19 @@
 /* Circus NY — custom overrides */
+
+/* Featured collection: match source site's 30px page margins (1380px content on 1440px viewport) */
+.section-resource-list {
+  --page-margin: 30px;
+
+  @media screen and (max-width: 749px) {
+    --page-margin: 16px;
+  }
+}
+
+/* Featured collection: sharp product card corners matching source --shape-sharp-square: 0px */
+.section-resource-list .product-card {
+  border-radius: 0;
+}
+
+.section-resource-list .product-card__media {
+  border-radius: 0;
+}
