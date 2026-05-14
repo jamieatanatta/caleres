@@ -118,6 +118,188 @@
         "padding-block-end": 40
       }
     },
+    "categories_banner": {
+      "type": "section",
+      "blocks": {
+        "group_metallic": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 4,
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fill",
+            "inherit_color_scheme": true,
+            "background_media": "image",
+            "background_image": "shopify://shop_images/cny-may-metallic.jpg",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "link": "/collections/all",
+            "padding-block-start": 0,
+            "padding-block-end": 16,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "text_metallic": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Shine bright.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "type_preset": "rte",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "button_metallic": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP METALLIC",
+                "link": "/collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "width_mobile": "fit-content"
+              }
+            }
+          },
+          "block_order": ["text_metallic", "button_metallic"]
+        },
+        "group_seashell": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 4,
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fill",
+            "inherit_color_scheme": true,
+            "background_media": "image",
+            "background_image": "shopify://shop_images/cny-may-seashell.jpg",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "link": "/collections/all",
+            "padding-block-start": 0,
+            "padding-block-end": 16,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "text_seashell": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Keep it light.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "type_preset": "rte",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "button_seashell": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP SEASHELL",
+                "link": "/collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "width_mobile": "fit-content"
+              }
+            }
+          },
+          "block_order": ["text_seashell", "button_seashell"]
+        },
+        "group_black": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 4,
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fill",
+            "inherit_color_scheme": true,
+            "background_media": "image",
+            "background_image": "shopify://shop_images/cny-may-black.jpg",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "link": "/collections/all",
+            "padding-block-start": 0,
+            "padding-block-end": 16,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "text_black": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Show your dark side.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "type_preset": "rte",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "button_black": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BLACK",
+                "link": "/collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "width_mobile": "fit-content"
+              }
+            }
+          },
+          "block_order": ["text_black", "button_black"]
+        }
+      },
+      "block_order": ["group_metallic", "group_seashell", "group_black"],
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "custom",
+        "section_height_custom": 67,
+        "color_scheme": "scheme-6",
+        "background_media": "none",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -315,6 +497,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "categories_banner",
     "product_list_fa6P9H"
   ]
 }
