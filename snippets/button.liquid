@@ -34,8 +34,12 @@
 
 {% stylesheet %}
   .link {
-    text-decoration: none;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 3px;
     text-decoration-color: currentcolor;
+    font-weight: 700;
+    letter-spacing: 0.08em;
 
     &:hover {
       color: var(--color-primary-hover);
