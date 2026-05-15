@@ -32,6 +32,31 @@
 
 {% render 'card-gallery', children: children %}
 
+{%- unless product == blank -%}
+  {%- if product.available == false or product.compare_at_price > product.price -%}
+    <div
+      class="product-badges product-badges--below-image"
+      style="
+        --badge-border-radius: {{ settings.badge_corner_radius }}px;
+        --badge-font-family: var(--font-{{ settings.badge_font_family }}--family); --badge-font-weight: var(--font-{{ settings.badge_font_family }}--weight); --badge-text-transform: {{ settings.badge_text_transform }};
+      "
+    >
+      <div
+        class="
+          product-badges__badge product-badges__badge--rectangle
+          {% if product.available == false %} color-{{ settings.badge_sold_out_color_scheme }}{% elsif product.compare_at_price > product.price %} color-{{ settings.badge_sale_color_scheme }}{% endif %}
+        "
+      >
+        {%- if product.available == false -%}
+          {{ 'content.product_badge_sold_out' | t }}
+        {%- elsif product.compare_at_price > product.price -%}
+          {{ 'content.product_badge_sale' | t }}
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+{%- endunless -%}
+
 {% # Title and price for the zoomed out grid view %}
 <div class="product-grid-view-zoom-out--details">
   {% if product == blank %}
@@ -83,6 +108,11 @@
   .product-badges__badge--rectangle {
     padding-block: var(--badge-rectangle-padding-block);
     padding-inline: var(--badge-rectangle-padding-inline);
+  }
+
+  .product-badges--below-image {
+    display: none; /* enabled by section-specific CSS */
+    position: static; /* override .product-badges position: absolute */
   }
 {% endstylesheet %}
 

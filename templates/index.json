@@ -69,7 +69,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Shop Sandals",
-            "link": "",
+            "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
@@ -745,7 +745,7 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "h5",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -770,7 +770,7 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "h5",
                 "width": "100%",
                 "alignment": "left",
                 "font": "var(--font-body--family)",
@@ -798,11 +798,11 @@
       "settings": {
         "collection": "all",
         "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "carousel_on_mobile": true,
         "max_products": 5,
         "columns": 5,
         "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
+        "mobile_card_size": "44cqw",
         "columns_gap": 24,
         "rows_gap": 24,
         "icons_style": "arrow",
@@ -811,8 +811,8 @@
         "horizontal_alignment": "flex-start",
         "gap": 32,
         "color_scheme": "scheme-1",
-        "padding-block-start": 16,
-        "padding-block-end": 16
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
     }
   },

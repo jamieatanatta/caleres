@@ -1,11 +1,33 @@
 /* Circus NY — custom overrides */
 
+/* Featured collection: move sale badge below image instead of overlaying it */
+.section-resource-list .card-gallery .product-badges {
+  display: none;
+}
+
+.section-resource-list .product-badges--below-image {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+/* Featured collection: section heading uppercase per Circus NY style */
+.section-resource-list .section-resource-list__header .h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Featured collection: price bold weight (h5 base = 500, override to 700) */
+.section-resource-list .product-card product-price {
+  font-weight: 700;
+}
+
 /* Featured collection: match source site's 30px page margins (1380px content on 1440px viewport) */
 .section-resource-list {
   --page-margin: 30px;
 
   @media screen and (max-width: 749px) {
-    --page-margin: 16px;
+    --page-margin: 10px;
   }
 }
 
@@ -55,5 +77,285 @@
 
   .section-resource-list .card-gallery {
     border-radius: 0;
+  }
+}
+
+/* Featured collection: product card image aspect ratio matching source portrait cards (~257×321px) */
+.section-resource-list .card-gallery {
+  --gallery-aspect-ratio: 4 / 5;
+}
+
+/* Featured collection: Sale badge font styling matching source --below-image-primary-text-badge-line-height: 16px */
+.section-resource-list .product-badges__badge {
+  font-family: var(--font-body--family);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+/* Featured collection: View all link font styling matching source */
+.section-resource-list .section-resource-list__header .link {
+  font-family: var(--font-body--family);
+  font-size: 14px;
+  color: var(--color-foreground);
+}
+
+/* Featured collection: mobile carousel scroll snap for smooth UX */
+@media screen and (max-width: 749px) {
+  .section-resource-list .resource-list__carousel {
+    scroll-snap-type: x mandatory;
+  }
+
+  .section-resource-list .resource-list__carousel > * {
+    scroll-snap-align: start;
+  }
+}
+
+/* ==========================================================================
+   Footer overrides — Circus NY design
+   ========================================================================== */
+
+/* Hide footer-utilities section (copyright/policies/social handled in footer group block) */
+.footer-utilities {
+  display: none;
+}
+
+/* Yellow promo bar above footer */
+#shopify-section-promo_bar .section {
+  padding-inline: 0;
+}
+
+#shopify-section-promo_bar p {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+#shopify-section-promo_bar a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 700;
+}
+
+#shopify-section-promo_bar a:hover {
+  opacity: 0.7;
+}
+
+#shopify-section-promo_bar .icon-block svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 749px) {
+  #shopify-section-promo_bar p {
+    white-space: normal;
+    font-size: 13px;
+    text-align: center;
+  }
+}
+
+/* Footer section: top padding (space below yellow promo bar) */
+.footer-content.spacing-style {
+  padding-block-start: 32px !important;
+}
+
+/* Footer grid: desktop 5-column layout (4 menus + 1 wider signup group) */
+@media screen and (min-width: 990px) {
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr) 2.2fr !important;
+    column-gap: 48px !important;
+    align-items: start;
+  }
+
+  /* Override footer.liquid's isolated-grid-item rule (loaded after circus.css) */
+  .footer-content.footer-content--isolated-grid-item-desktop > :last-child,
+  .footer-content--isolated-grid-item-desktop > :last-child {
+    grid-column: auto !important;
+  }
+}
+
+/* Footer grid: tablet 2-column layout */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .footer-content > .group-block {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Footer grid: mobile 2-column layout with email signup first */
+@media screen and (max-width: 749px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .footer-content > .group-block {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  /* Add vertical spacing between 2nd row of menus (3rd and 4th accordion) */
+  .footer-content > accordion-custom:nth-of-type(n+3) {
+    margin-top: 20px;
+  }
+}
+
+/* Footer menu heading typography */
+.footer-content .menu__heading {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0;
+}
+
+/* Footer menu link typography */
+.footer-content .menu__item {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.footer-content .menu__item a {
+  color: #000;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.footer-content .menu__item a:hover {
+  text-decoration: underline;
+}
+
+/* Footer menu: spacing between menu heading and links list */
+.footer-content .menu:not(:has(.menu__heading--empty)) .details-content {
+  margin-block-start: 4px;
+}
+
+/* Footer menu: zero spacing between individual menu items (handled by line-height) */
+.footer-content .menu__item + .menu__item {
+  margin-block-start: 0;
+}
+
+/* Footer email signup button styling */
+.footer-content .email-signup__button--text {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background-color: #333232;
+  color: #fff;
+  min-height: 44px;
+  min-width: 145px;
+  flex-shrink: 0;
+  border-radius: 0;
+  border: none;
+  padding: 0 16px;
+}
+
+.footer-content .email-signup__button--text:hover {
+  background-color: #e9c437;
+  color: #333232;
+  border-color: #e9c437;
+}
+
+/* Footer email signup input styling */
+.footer-content .email-signup__input {
+  border: 1px solid #333232;
+  border-radius: 0;
+  height: 44px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.footer-content .email-signup__input::placeholder {
+  color: #333232;
+  font-weight: 600;
+}
+
+/* Footer group block: zero internal gap (children spaced via margins) */
+.footer-content > .group-block .group-block-content {
+  gap: 0;
+}
+
+/* Footer promo text (heading at top of newsletter group) */
+.footer-content .group-block .text-block--align-center {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+/* Spacing between promo heading and email-signup */
+.footer-content .group-block .text-block + .email-signup-block {
+  margin-top: 16px;
+}
+
+/* Desktop: left-align heading (matches the rest of the newsletter column) */
+@media screen and (min-width: 990px) {
+  .footer-content .group-block .text-block--align-center {
+    text-align: left;
+  }
+}
+
+/* Footer disclaimer and copyright text */
+.footer-content .group-block .email-signup-block ~ .text-block {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 18px;
+}
+
+/* Footer disclaimer text: spacing above */
+.footer-content .group-block .email-signup-block + .text-block {
+  margin-top: 14px;
+}
+
+/* Footer copyright text: spacing above */
+.footer-content .group-block .email-signup-block ~ .text-block + .text-block {
+  margin-top: 20px;
+}
+
+/* Footer accessibility icon: rendered via ::before pseudo on the copyright text block */
+.footer-content .group-block .email-signup-block ~ .text-block + .text-block::before {
+  content: '';
+  display: inline-block;
+  width: 77px;
+  height: 30px;
+  background-image: url('accessibility-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+/* Footer: email signup form row should not stack on mobile, mobile centering, accessibility icon stacks */
+@media screen and (max-width: 749px) {
+  .footer-content .email-signup__input-group:not(.email-signup__input-group--arrow):not(.email-signup__input-group--underline):not(.email-signup__input-group--integrated) {
+    flex-direction: row;
+  }
+
+  .footer-content .email-signup__button {
+    width: auto;
+  }
+
+  /* Center copyright text (with accessibility icon stacked above) on mobile */
+  .footer-content .group-block .email-signup-block ~ .text-block + .text-block {
+    text-align: center;
+  }
+
+  .footer-content .group-block .email-signup-block ~ .text-block + .text-block::before {
+    display: block;
+    margin: 0 auto 8px;
   }
 }
