@@ -1140,38 +1140,21 @@
     }
   }
 
-  /* Circus NY overrides: even distribution of nav links across center column */
+  /* Circus NY overrides: nav link spacing on desktop */
   @media screen and (min-width: 750px) {
-    /* Stretch center column so menu can distribute its items across full width */
-    .header-section .header__columns:has(.header__column--center header-menu) {
-      --header-left: max-content;
-      --header-center: minmax(0, 1fr);
-      --header-right: max-content;
-    }
-
-    /* Make header-menu and its inner containers fill the center column */
-    .header-section .header__column--center,
-    .header-section .header__column--center header-menu,
-    .header-section .header__column--center .header-menu__inner,
-    .header-section .header__column--center .menu-list,
-    .header-section .header__column--center .overflow-menu {
-      width: 100%;
-    }
-
-    /* Distribute menu items evenly across the available width */
-    .header-section .overflow-menu::part(list) {
-      justify-content: space-between;
-      column-gap: 0;
-      margin-inline: 0;
-    }
-
-    /* Items size to their content — no flex grow */
+    /* Items size to their content with a defined gap between them */
     .header-section .menu-list__list-item {
       flex: 0 0 auto;
     }
 
     .header-section .menu-list__link-title {
       padding-inline: 0;
+    }
+
+    .header-section .overflow-menu::part(list) {
+      column-gap: 56px;
+      justify-content: center;
+      margin-inline: 0;
     }
 
     /* Action icon spacing to match source ~20px gaps */
