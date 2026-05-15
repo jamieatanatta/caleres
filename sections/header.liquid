@@ -1139,6 +1139,55 @@
       display: none !important; /* stylelint-disable-line declaration-no-important */
     }
   }
+
+  /* Circus NY overrides: even distribution of nav links across center column */
+  @media screen and (min-width: 750px) {
+    .header-section .menu-list__list-item {
+      flex: 1 1 0%;
+    }
+
+    .header-section .menu-list__link-title {
+      padding-inline: 0;
+    }
+
+    .header-section .overflow-menu::part(list) {
+      margin-inline: 0;
+    }
+
+    /* Action icon spacing to match source ~20px gaps */
+    .header-section header-actions {
+      gap: 20px;
+    }
+  }
+
+  /* Circus NY overrides: hover underline on nav links */
+  .header-section .menu-list__link-title {
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--animation-speed) var(--animation-easing);
+  }
+
+  .header-section .menu-list__link:hover .menu-list__link-title,
+  .header-section .menu-list__link[aria-expanded='true'] .menu-list__link-title {
+    border-bottom-color: currentColor;
+  }
+
+  /* Circus NY overrides: mobile header height and search position */
+  @media screen and (max-width: 749px) {
+    .header-section .header__row--top .header__columns {
+      height: 70px;
+    }
+
+    /* Move search icon from left (leftB) to right (rightA) on mobile */
+    .header-section .header__columns .search-action {
+      grid-area: rightA;
+    }
+  }
+
+  /* Search position override for touch/drawer mode */
+  #header-component[data-menu-style='drawer'] .header__columns .search-action {
+    grid-area: rightA;
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}
