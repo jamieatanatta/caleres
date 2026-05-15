@@ -130,7 +130,9 @@
 /* Footer grid: desktop 5-column layout (4 menus + 1 wider signup group) */
 @media screen and (min-width: 990px) {
   .footer-content {
-    grid-template-columns: repeat(4, 1fr) 2fr !important;
+    grid-template-columns: repeat(4, 1fr) 2.2fr !important;
+    column-gap: 48px !important;
+    align-items: start;
   }
 
   /* Prevent the last child (5th block) from spanning full width via --isolated-grid-item */
@@ -172,16 +174,18 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
   color: #000;
+  margin: 0;
 }
 
 /* Footer menu link typography */
 .footer-content .menu__item {
   font-weight: 700;
-  font-size: 12px;
-  line-height: 18px;
-  letter-spacing: 0.25px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
 }
 
 .footer-content .menu__item a {
@@ -190,12 +194,16 @@
   text-decoration: none;
 }
 
-/* Footer menu: zero spacing between menu heading and links list */
-.footer-content .menu:not(:has(.menu__heading--empty)) .details-content {
-  margin-block-start: 0;
+.footer-content .menu__item a:hover {
+  text-decoration: underline;
 }
 
-/* Footer menu: zero spacing between individual menu items */
+/* Footer menu: spacing between menu heading and links list */
+.footer-content .menu:not(:has(.menu__heading--empty)) .details-content {
+  margin-block-start: 14px;
+}
+
+/* Footer menu: zero spacing between individual menu items (handled by line-height) */
 .footer-content .menu__item + .menu__item {
   margin-block-start: 0;
 }
@@ -242,11 +250,23 @@
   gap: 0;
 }
 
-/* Footer promo text (centered text at top of group) */
+/* Footer promo text (heading at top of newsletter group) */
 .footer-content .group-block .text-block--align-center {
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
+}
+
+/* Spacing between promo heading and email-signup */
+.footer-content .group-block .text-block + .email-signup-block {
+  margin-top: 16px;
+}
+
+/* Desktop: left-align heading (matches the rest of the newsletter column) */
+@media screen and (min-width: 990px) {
+  .footer-content .group-block .text-block--align-center {
+    text-align: left;
+  }
 }
 
 /* Footer disclaimer and copyright text */
