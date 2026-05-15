@@ -1139,36 +1139,61 @@
       grid-template-columns: 0 minmax(0, 1fr) 0;
     }
 
-    /* Width propagation chain: ensure menu fills entire bottom row center area */
-    .header-section .header__row--bottom .header__column--center,
-    .header-section .header__row--bottom header-menu,
-    .header-section .header__row--bottom .header-menu__inner,
-    .header-section .header__row--bottom .menu-list {
+    /* Width propagation chain: force every link in the chain to fill the row */
+    .header-section .header__row--bottom .header__column--center {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+
+    .header-section .header__row--bottom header-menu {
+      display: block;
       width: 100%;
       max-width: 100%;
     }
 
-    /* Equal-width slots across full row width — text centered within each slot */
+    .header-section .header__row--bottom .header-menu__inner {
+      display: block;
+      width: 100%;
+    }
+
+    .header-section .header__row--bottom .menu-list {
+      display: block;
+      width: 100%;
+    }
+
+    .header-section .header__row--bottom .overflow-menu {
+      display: block;
+      width: 100%;
+    }
+
+    /* Equal-width slots across the full row width with text centered in each */
     .header-section .header__row--bottom .overflow-menu::part(list) {
-      justify-content: stretch !important; /* stylelint-disable-line declaration-no-important */
+      display: flex !important; /* stylelint-disable-line declaration-no-important */
+      flex-wrap: nowrap !important; /* stylelint-disable-line declaration-no-important */
+      justify-content: space-between !important; /* stylelint-disable-line declaration-no-important */
+      align-items: center !important; /* stylelint-disable-line declaration-no-important */
       column-gap: 0 !important; /* stylelint-disable-line declaration-no-important */
       margin-inline: 0 !important; /* stylelint-disable-line declaration-no-important */
-      width: 100%;
+      padding-inline: 0 !important; /* stylelint-disable-line declaration-no-important */
+      width: 100% !important; /* stylelint-disable-line declaration-no-important */
     }
 
-    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']) {
-      flex: 1 1 0;
+    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']):not([slot='more']) {
+      flex: 1 1 0 !important; /* stylelint-disable-line declaration-no-important */
       min-width: 0;
       justify-content: center;
-    }
-
-    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']) .menu-list__link {
-      width: 100%;
-      align-items: center;
       text-align: center;
     }
 
-    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']) .menu-list__link-title {
+    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']):not([slot='more']) .menu-list__link {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']):not([slot='more']) .menu-list__link-title {
       display: inline-block;
       text-align: center;
     }
