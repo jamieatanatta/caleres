@@ -267,7 +267,21 @@
   margin-top: 20px;
 }
 
-/* Footer: email signup form row should not stack on mobile */
+/* Footer accessibility icon: rendered via ::before pseudo on the copyright text block */
+.footer-content .group-block .email-signup-block ~ .text-block + .text-block::before {
+  content: '';
+  display: inline-block;
+  width: 77px;
+  height: 30px;
+  background-image: url('accessibility-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+/* Footer: email signup form row should not stack on mobile, mobile centering, accessibility icon stacks */
 @media screen and (max-width: 749px) {
   .footer-content .email-signup__input-group:not(.email-signup__input-group--arrow):not(.email-signup__input-group--underline):not(.email-signup__input-group--integrated) {
     flex-direction: row;
@@ -275,5 +289,15 @@
 
   .footer-content .email-signup__button {
     width: auto;
+  }
+
+  /* Center copyright text (with accessibility icon stacked above) on mobile */
+  .footer-content .group-block .email-signup-block ~ .text-block + .text-block {
+    text-align: center;
+  }
+
+  .footer-content .group-block .email-signup-block ~ .text-block + .text-block::before {
+    display: block;
+    margin: 0 auto 8px;
   }
 }
