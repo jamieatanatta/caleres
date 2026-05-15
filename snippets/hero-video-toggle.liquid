@@ -1,0 +1,114 @@
+{% doc %}
+  Hero Video Toggle
+
+  Renders a play/pause toggle button for hero video sections.
+  Positioned absolute at bottom-right of .hero__container.
+
+  @param {string} section_id - The section ID (required)
+
+  @example
+  {% render 'hero-video-toggle', section_id: section.id %}
+{% enddoc %}
+
+{% liquid
+  assign section_id = section_id | default: ''
+  unless section_id != blank
+    break
+  endunless
+%}
+
+<button
+  type="button"
+  class="hero-video-toggle"
+  aria-label="Pause video"
+  data-hero-id="Hero-{{ section_id }}"
+>
+  <svg class="hero-video-toggle__icon hero-video-toggle__icon--pause" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="4" y="3" width="4" height="14" rx="1" fill="currentColor"/>
+    <rect x="12" y="3" width="4" height="14" rx="1" fill="currentColor"/>
+  </svg>
+  <svg class="hero-video-toggle__icon hero-video-toggle__icon--play" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M5 3.868a1 1 0 0 1 1.507-.864l10 5.632a1 1 0 0 1 0 1.728l-10 5.632A1 1 0 0 1 5 15.132V3.868Z" fill="currentColor"/>
+  </svg>
+</button>
+
+<style>
+  .hero-video-toggle {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: var(--layer-flat, 1);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    padding: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .hero-video-toggle:hover {
+    opacity: 0.7;
+  }
+
+  .hero-video-toggle:focus-visible {
+    outline: 2px solid rgb(255, 255, 255);
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 4px;
+    opacity: 0.7;
+  }
+
+  .hero-video-toggle__icon--play {
+    display: none;
+  }
+
+  .hero-video-toggle[data-paused="true"] .hero-video-toggle__icon--pause {
+    display: none;
+  }
+
+  .hero-video-toggle[data-paused="true"] .hero-video-toggle__icon--play {
+    display: block;
+  }
+</style>
+
+<script>
+  (function() {
+    var button = document.currentScript.previousElementSibling.previousElementSibling;
+    if (!button || button.tagName !== 'BUTTON') return;
+
+    var heroId = button.getAttribute('data-hero-id');
+
+    function getVisibleVideo() {
+      var heroEl = document.getElementById(heroId);
+      if (!heroEl) return null;
+      var videos = heroEl.querySelectorAll('video');
+      for (var i = 0; i < videos.length; i++) {
+        var wrapper = videos[i].closest('.hero__media-wrapper');
+        if (!wrapper || getComputedStyle(wrapper).display !== 'none') {
+          return videos[i];
+        }
+      }
+      return null;
+    }
+
+    button.addEventListener('click', function() {
+      var video = getVisibleVideo();
+      if (!video) return;
+
+      if (video.paused) {
+        video.play();
+        button.setAttribute('data-paused', 'false');
+        button.setAttribute('aria-label', 'Pause video');
+      } else {
+        video.pause();
+        button.setAttribute('data-paused', 'true');
+        button.setAttribute('aria-label', 'Play video');
+      }
+    });
+  })();
+</script>

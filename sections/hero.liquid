@@ -520,6 +520,9 @@
       %}
       {{ media }}
     </div>
+    {% if media_1 == 'video' or media_2 == 'video' or media_1_mobile == 'video' or media_2_mobile == 'video' %}
+      {% render 'hero-video-toggle', section_id: section.id %}
+    {% endif %}
     <div
       class="
         hero__content-wrapper
