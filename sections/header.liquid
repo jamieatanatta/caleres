@@ -1130,13 +1130,19 @@
       height: 98px;
     }
 
-    /* 66px fixed height for bottom row (nav row); center column takes full width */
+    /* Slim bottom nav row — tight padding so items hug the bottom edge per design */
     .header-section .header__row--bottom .header__columns {
-      height: 66px;
+      height: 52px;
       --header-left: 0;
       --header-center: minmax(0, 1fr);
       --header-right: 0;
+      --padding-block-start: 8px;
+      --padding-block-end: 8px;
       grid-template-columns: 0 minmax(0, 1fr) 0;
+    }
+
+    .header-section .header__row--bottom {
+      --header-padding: 8px;
     }
 
     /* Width propagation chain: force every link in the chain to fill the row */
@@ -1211,24 +1217,31 @@
     }
   }
 
-  /* LifeStride nav link typography (matches design): uppercase, ~13px, letter-spacing */
+  /* LifeStride nav link typography (matches design): uppercase, ~13px, bold, no underline */
   .header-section .menu-list__link-title {
     padding-inline: 0;
+    padding-bottom: 0;
     letter-spacing: 1.5px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid transparent;
-    transition: border-color var(--animation-speed) var(--animation-easing);
+    border-bottom: none;
   }
 
   .header-section .menu-list__link {
     font-size: 0.8125rem; /* 13px to match design */
-    font-weight: 400;
+    font-weight: 700; /* bold per design */
     line-height: 1;
+    text-decoration: none;
+  }
+
+  .header-section .menu-list__link:hover,
+  .header-section .menu-list__link:focus,
+  .header-section .menu-list__link[aria-expanded='true'] {
+    text-decoration: none;
   }
 
   .header-section .menu-list__link:hover .menu-list__link-title,
   .header-section .menu-list__link[aria-expanded='true'] .menu-list__link-title {
-    border-bottom-color: currentColor;
+    border-bottom: none;
+    text-decoration: none;
   }
 
   /* Circus NY overrides: mobile header height and search position */
@@ -1292,33 +1305,39 @@
     }
   }
 
-  /* LifeStride overrides: Mobile search bar below logo row */
+  /* LifeStride overrides: Mobile search bar as a full-width row below the logo/icons row */
   @media screen and (max-width: 749px) {
     .header-section .header__row--top .header__columns {
       position: relative;
       height: auto !important; /* stylelint-disable-line declaration-no-important */
       min-height: 58px;
-      padding-bottom: 64px;
+      padding-bottom: 56px;
+      padding-inline: var(--page-margin, 16px);
     }
 
-    .header-section .search-action {
+    /* Search bar sits in its own row at the bottom of the header__columns area, full width */
+    .header-section .header__columns .search-action,
+    #header-component[data-menu-style='drawer'] .header__columns .search-action,
+    #header-component[data-menu-style='drawer'] .header-section .search-action {
       position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
+      bottom: 8px;
+      left: var(--page-margin, 16px);
+      right: var(--page-margin, 16px);
+      width: auto;
       margin: 0;
       padding: 0;
       grid-area: unset;
+      max-width: none;
     }
 
     .header-section .search-action .button-unstyled {
       width: 100%;
-      height: 44px;
+      height: 40px;
       background: transparent;
       border: none;
       border-bottom: 1px solid rgb(86, 83, 81);
       border-radius: 0;
-      padding: 5px 44px 5px 10px;
+      padding: 4px 36px 4px 4px;
       position: relative;
       display: flex;
       align-items: center;
@@ -1330,7 +1349,7 @@
       font-family: var(--font-body--family);
       font-size: 1rem;
       font-weight: 400;
-      color: rgba(86, 83, 81, 0.5);
+      color: rgba(86, 83, 81, 0.6);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1339,25 +1358,13 @@
 
     .header-section .search-action .button-unstyled > .svg-wrapper {
       position: absolute;
-      right: 8px;
+      right: 4px;
       top: 50%;
       transform: translateY(-50%);
     }
 
     .header-section .search-action .button-unstyled > span:not(.svg-wrapper) {
       display: none;
-    }
-  }
-
-  /* LifeStride overrides: Mobile search in drawer mode */
-  @media screen and (max-width: 749px) {
-    #header-component[data-menu-style='drawer'] .header-section .search-action,
-    #header-component[data-menu-style='drawer'] .header__columns .search-action {
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-      grid-area: unset;
     }
   }
 {% endstylesheet %}
