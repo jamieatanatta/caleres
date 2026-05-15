@@ -135,9 +135,10 @@
     align-items: start;
   }
 
-  /* Prevent the last child (5th block) from spanning full width via --isolated-grid-item */
+  /* Override footer.liquid's isolated-grid-item rule (loaded after circus.css) */
+  .footer-content.footer-content--isolated-grid-item-desktop > :last-child,
   .footer-content--isolated-grid-item-desktop > :last-child {
-    grid-column: auto;
+    grid-column: auto !important;
   }
 }
 
