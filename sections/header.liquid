@@ -1305,29 +1305,37 @@
     }
   }
 
-  /* LifeStride overrides: Mobile search bar as a full-width row below the logo/icons row */
+  /* LifeStride overrides: Mobile header — 2-row grid (logo/icons on top, search below) */
   @media screen and (max-width: 749px) {
-    .header-section .header__row--top .header__columns {
-      position: relative;
+    .header-section .header__row--top .header__columns,
+    #header-component[data-menu-style='drawer'] .header-section .header__row--top .header__columns {
+      grid-template-columns:
+        var(--header-mobile-bookend) var(--header-mobile-bookend) 1fr
+        var(--header-mobile-bookend) var(--header-mobile-bookend) !important; /* stylelint-disable-line declaration-no-important */
+      grid-template-areas:
+        'leftA leftB center rightA rightB'
+        'search search search search search' !important; /* stylelint-disable-line declaration-no-important */
+      grid-template-rows: 58px auto;
       height: auto !important; /* stylelint-disable-line declaration-no-important */
-      min-height: 58px;
-      padding-bottom: 56px;
+      padding-block: 0 12px;
       padding-inline: var(--page-margin, 16px);
+      row-gap: 0;
     }
 
-    /* Search bar sits in its own row at the bottom of the header__columns area, full width */
+    /* Search occupies the full second row */
     .header-section .header__columns .search-action,
     #header-component[data-menu-style='drawer'] .header__columns .search-action,
     #header-component[data-menu-style='drawer'] .header-section .search-action {
-      position: absolute;
-      bottom: 8px;
-      left: var(--page-margin, 16px);
-      right: var(--page-margin, 16px);
-      width: auto;
+      position: static;
+      grid-area: search;
+      grid-column: 1 / -1;
+      width: 100%;
+      max-width: none;
       margin: 0;
       padding: 0;
-      grid-area: unset;
-      max-width: none;
+      bottom: auto;
+      left: auto;
+      right: auto;
     }
 
     .header-section .search-action .button-unstyled {
