@@ -1130,38 +1130,34 @@
       height: 98px;
     }
 
-    /* 66px fixed height for bottom row (nav row) with full-width center column */
+    /* 66px fixed height for bottom row (nav row); center column takes full width */
     .header-section .header__row--bottom .header__columns {
       height: 66px;
       --header-left: 0;
-      --header-center: 1fr;
+      --header-center: minmax(0, 1fr);
       --header-right: 0;
+      grid-template-columns: 0 minmax(0, 1fr) 0;
     }
 
     /* Width propagation chain: ensure menu fills entire bottom row center area */
-    .header-section .header__row--bottom header-menu {
-      width: 100%;
-    }
-
-    .header-section .header__row--bottom .header-menu__inner {
-      width: 100%;
-    }
-
+    .header-section .header__row--bottom .header__column--center,
+    .header-section .header__row--bottom header-menu,
+    .header-section .header__row--bottom .header-menu__inner,
     .header-section .header__row--bottom .menu-list {
       width: 100%;
+      max-width: 100%;
     }
 
-    /* Nav items distribute evenly across full width (space-around) */
+    /* Distribute nav links evenly across the full row width (matches design) */
     .header-section .header__row--bottom .overflow-menu::part(list) {
-      justify-content: space-around;
-      column-gap: 0;
-      margin-inline: 0;
+      justify-content: space-between !important; /* stylelint-disable-line declaration-no-important */
+      column-gap: 0 !important; /* stylelint-disable-line declaration-no-important */
+      margin-inline: 0 !important; /* stylelint-disable-line declaration-no-important */
       width: 100%;
     }
 
-    .header-section .header__row--bottom .menu-list__list-item {
-      flex: 1 0 0%;
-      text-align: center;
+    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']) {
+      flex: 0 0 auto;
     }
 
     /* Action icon spacing to match source ~20px gaps */
@@ -1177,13 +1173,19 @@
     }
   }
 
-  /* Circus NY overrides: nav link typography + hover underline on nav links */
+  /* LifeStride nav link typography (matches design): uppercase, ~13px, letter-spacing */
   .header-section .menu-list__link-title {
     padding-inline: 0;
-    letter-spacing: 1px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid transparent;
+    letter-spacing: 1.5px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
     transition: border-color var(--animation-speed) var(--animation-easing);
+  }
+
+  .header-section .menu-list__link {
+    font-size: 0.8125rem; /* 13px to match design */
+    font-weight: 400;
+    line-height: 1;
   }
 
   .header-section .menu-list__link:hover .menu-list__link-title,
