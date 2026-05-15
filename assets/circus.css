@@ -359,3 +359,109 @@
     margin: 0 auto 8px;
   }
 }
+
+/* ==========================================================================
+   Collection page overrides — Circus NY design
+   ========================================================================== */
+
+/* Force 4-column desktop grid (Horizon's auto-fill minmax would produce 5 cols at full-width) */
+.main-collection-grid .product-grid--grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+@media screen and (max-width: 749px) {
+  .main-collection-grid .product-grid--grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Sale badge: hide the overlay badge inside card-gallery, show below-image version */
+.main-collection-grid .card-gallery .product-badges {
+  display: none;
+}
+
+.main-collection-grid .product-badges--below-image {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  position: static;
+}
+
+/* Sale badge: sharp corners + typography */
+.main-collection-grid .product-badges__badge {
+  border-radius: 0;
+  font-family: var(--font-body--family);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+/* Sale price: red color only when product is on sale (compare-at-price sibling exists) */
+.main-collection-grid product-price [ref="priceContainer"]:has(.compare-at-price) .price {
+  color: #e61531;
+}
+
+/* Compare-at-price: strikethrough with left padding (Horizon base already has line-through + opacity) */
+.main-collection-grid .compare-at-price {
+  opacity: 1;
+  padding-inline-start: 8px;
+  color: var(--color-foreground);
+}
+
+/* Product card: sharp corners matching source --shape-sharp-square: 0px */
+.main-collection-grid .product-card,
+.main-collection-grid .card-gallery,
+.main-collection-grid .card-gallery__image {
+  border-radius: 0;
+}
+
+/* Product card content: tight spacing and horizontal padding */
+.main-collection-grid .product-card__content {
+  gap: 4px;
+  padding-inline: 10px;
+}
+
+/* Product title: bold weight matching source 14px/20px 700 */
+.main-collection-grid product-title .text-block {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+/* Price typography: 16px/27.43px 600 weight matching source */
+.main-collection-grid product-price {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 27.43px;
+}
+
+/* Card gallery: gray background matching source #f1f1f1 */
+.main-collection-grid .card-gallery {
+  background-color: #f1f1f1;
+}
+
+/* Filter/sort toggle buttons: uppercase underlined matching source */
+.main-collection-grid .facets-toggle__button,
+.main-collection-grid .facets__summary {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.main-collection-grid .facets__label {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Collection heading H1: bold weight */
+.section h1 {
+  font-weight: 700;
+}
