@@ -130,8 +130,8 @@
         "section_width": "page-width",
         "section_height": "",
         "color_scheme": "scheme-8",
-        "padding-block-start": 18,
-        "padding-block-end": 18
+        "padding-block-start": 8,
+        "padding-block-end": 8
       }
     },
     "footer": {
