@@ -201,7 +201,7 @@
 
 /* Footer menu: spacing between menu heading and links list */
 .footer-content .menu:not(:has(.menu__heading--empty)) .details-content {
-  margin-block-start: 14px;
+  margin-block-start: 8px;
 }
 
 /* Footer menu: zero spacing between individual menu items (handled by line-height) */

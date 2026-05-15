@@ -11,6 +11,129 @@
   "type": "footer",
   "name": "t:names.footer",
   "sections": {
+    "promo_bar": {
+      "type": "section",
+      "blocks": {
+        "promo_text_us": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fit",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_chat": {
+              "type": "icon",
+              "settings": {
+                "icon": "chat_bubble",
+                "width": 28,
+                "link": ""
+              }
+            },
+            "text_chat": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Let's stay in touch! <a href=\"/pages/contact\">Text Us</a></p>",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "width": "fit",
+                "max_width": "normal",
+                "alignment": "left",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            }
+          },
+          "block_order": ["icon_chat", "text_chat"]
+        },
+        "promo_gift_cards": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fit",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_gift": {
+              "type": "icon",
+              "settings": {
+                "icon": "price_tag",
+                "width": 28,
+                "link": ""
+              }
+            },
+            "text_gift": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Give the gift of the Circus! <a href=\"/products/gift-card\">Shop Gift Cards</a></p>",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "width": "fit",
+                "max_width": "normal",
+                "alignment": "left",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            }
+          },
+          "block_order": ["icon_gift", "text_gift"]
+        }
+      },
+      "block_order": ["promo_text_us", "promo_gift_cards"],
+      "settings": {
+        "content_direction": "row",
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 60,
+        "section_width": "page-width",
+        "section_height": "fit",
+        "color_scheme": "scheme-8",
+        "padding-block-start": 18,
+        "padding-block-end": 18
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -306,6 +429,7 @@
     }
   },
   "order": [
+    "promo_bar",
     "footer",
     "utilities"
   ]
