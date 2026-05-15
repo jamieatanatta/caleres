@@ -375,27 +375,30 @@
   }
 }
 
-/* Sale badge: hide the overlay badge inside card-gallery, show below-image version */
-.main-collection-grid .card-gallery .product-badges {
+/* Sale badge: show overlay badge at bottom-left over image, hide below-image variant */
+.main-collection-grid .product-badges--below-image {
   display: none;
 }
 
-.main-collection-grid .product-badges--below-image {
+.main-collection-grid .card-gallery .product-badges {
   display: flex;
   gap: 4px;
-  margin-top: 4px;
-  position: static;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
 }
 
-/* Sale badge: sharp corners + typography */
+/* Sale badge: sharp corners + typography matching design */
 .main-collection-grid .product-badges__badge {
   border-radius: 0;
   font-family: var(--font-body--family);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  line-height: 16px;
+  line-height: 1;
+  padding: 6px 12px;
 }
 
 /* Sale price: red color only when product is on sale (compare-at-price sibling exists) */
