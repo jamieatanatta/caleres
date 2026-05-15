@@ -1125,36 +1125,43 @@
       --page-margin: 30px;
     }
 
-    /* 90px fixed height: directly set on the header columns, same approach as width */
+    /* 98px fixed height for top row (logo + actions row) */
     .header-section .header__row--top .header__columns {
-      height: 90px;
-    }
-  }
-
-  /* Circus NY overrides: hide account and wishlist on mobile */
-  @media screen and (max-width: 749px) {
-    .account-button,
-    .header-actions__wishlist,
-    shopify-account {
-      display: none !important; /* stylelint-disable-line declaration-no-important */
-    }
-  }
-
-  /* Circus NY overrides: nav link spacing on desktop */
-  @media screen and (min-width: 750px) {
-    /* Items size to their content with a defined gap between them */
-    .header-section .menu-list__list-item {
-      flex: 0 0 auto;
+      height: 98px;
     }
 
-    .header-section .menu-list__link-title {
-      padding-inline: 0;
+    /* 66px fixed height for bottom row (nav row) with full-width center column */
+    .header-section .header__row--bottom .header__columns {
+      height: 66px;
+      --header-left: 0;
+      --header-center: 1fr;
+      --header-right: 0;
     }
 
-    .header-section .overflow-menu::part(list) {
-      column-gap: 56px;
-      justify-content: center;
+    /* Width propagation chain: ensure menu fills entire bottom row center area */
+    .header-section .header__row--bottom header-menu {
+      width: 100%;
+    }
+
+    .header-section .header__row--bottom .header-menu__inner {
+      width: 100%;
+    }
+
+    .header-section .header__row--bottom .menu-list {
+      width: 100%;
+    }
+
+    /* Nav items distribute evenly across full width (space-around) */
+    .header-section .header__row--bottom .overflow-menu::part(list) {
+      justify-content: space-around;
+      column-gap: 0;
       margin-inline: 0;
+      width: 100%;
+    }
+
+    .header-section .header__row--bottom .menu-list__list-item {
+      flex: 1 0 0%;
+      text-align: center;
     }
 
     /* Action icon spacing to match source ~20px gaps */
@@ -1163,8 +1170,17 @@
     }
   }
 
-  /* Circus NY overrides: hover underline on nav links */
+  /* Circus NY overrides: hide wishlist on mobile (keep account icon visible) */
+  @media screen and (max-width: 749px) {
+    .header-actions__wishlist {
+      display: none !important; /* stylelint-disable-line declaration-no-important */
+    }
+  }
+
+  /* Circus NY overrides: nav link typography + hover underline on nav links */
   .header-section .menu-list__link-title {
+    padding-inline: 0;
+    letter-spacing: 1px;
     padding-bottom: 6px;
     border-bottom: 2px solid transparent;
     transition: border-color var(--animation-speed) var(--animation-easing);
@@ -1178,7 +1194,7 @@
   /* Circus NY overrides: mobile header height and search position */
   @media screen and (max-width: 749px) {
     .header-section .header__row--top .header__columns {
-      height: 70px;
+      height: 58px;
     }
 
     /* Move search icon from left (leftB) to right (rightA) on mobile */

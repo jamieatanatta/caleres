@@ -64,6 +64,17 @@ a:not(.button):hover {
 }
 
 /* ==========================================================================
+   Announcement Bar overrides
+   Source: 12px text, 1.5 line-height for proper single-line (desktop) and
+   two-line (mobile) wrapping. Horizon's _announcement block hardcodes
+   --line-height: 1 inline; this override produces correct heights.
+   ========================================================================== */
+
+.announcement-bar__slide {
+  --line-height: 1.5;
+}
+
+/* ==========================================================================
    Existing section-specific overrides (preserved from prior configuration)
    ========================================================================== */
 
