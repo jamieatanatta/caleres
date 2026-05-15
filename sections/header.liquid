@@ -1148,16 +1148,29 @@
       max-width: 100%;
     }
 
-    /* Distribute nav links evenly across the full row width (matches design) */
+    /* Equal-width slots across full row width — text centered within each slot */
     .header-section .header__row--bottom .overflow-menu::part(list) {
-      justify-content: space-between !important; /* stylelint-disable-line declaration-no-important */
+      justify-content: stretch !important; /* stylelint-disable-line declaration-no-important */
       column-gap: 0 !important; /* stylelint-disable-line declaration-no-important */
       margin-inline: 0 !important; /* stylelint-disable-line declaration-no-important */
       width: 100%;
     }
 
     .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']) {
-      flex: 0 0 auto;
+      flex: 1 1 0;
+      min-width: 0;
+      justify-content: center;
+    }
+
+    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']) .menu-list__link {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header-section .header__row--bottom .menu-list__list-item:not([slot='overflow']) .menu-list__link-title {
+      display: inline-block;
+      text-align: center;
     }
 
     /* Action icon spacing to match source ~20px gaps */
