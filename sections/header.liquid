@@ -1207,6 +1207,118 @@
   #header-component[data-menu-style='drawer'] .header__columns .search-action {
     grid-area: rightA;
   }
+
+  /* LifeStride overrides: Desktop search styled as input bar */
+  @media screen and (min-width: 750px) {
+    .header-section .search-action {
+      flex: 1;
+      max-width: 345px;
+      margin-inline: 0;
+    }
+
+    .header-section .search-action .button-unstyled {
+      width: 100%;
+      height: 44px;
+      background: rgb(255, 255, 255);
+      border: 1px solid rgba(86, 83, 81, 0.3);
+      border-radius: 0;
+      padding: 0 44px 0 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: text;
+    }
+
+    .header-section .search-action .button-unstyled::before {
+      content: 'What are you looking for?';
+      font-family: var(--font-body--family);
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(86, 83, 81, 0.6);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .header-section .search-action .button-unstyled > .svg-wrapper {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .header-section .search-action .button-unstyled > span:not(.svg-wrapper) {
+      display: none;
+    }
+  }
+
+  /* LifeStride overrides: Mobile search bar below logo row */
+  @media screen and (max-width: 749px) {
+    .header-section .header__row--top .header__columns {
+      position: relative;
+      height: auto !important; /* stylelint-disable-line declaration-no-important */
+      min-height: 58px;
+      padding-bottom: 64px;
+    }
+
+    .header-section .search-action {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      grid-area: unset;
+    }
+
+    .header-section .search-action .button-unstyled {
+      width: 100%;
+      height: 44px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgb(86, 83, 81);
+      border-radius: 0;
+      padding: 5px 44px 5px 10px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: text;
+    }
+
+    .header-section .search-action .button-unstyled::before {
+      content: 'What are you looking for?';
+      font-family: var(--font-body--family);
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(86, 83, 81, 0.5);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      pointer-events: none;
+    }
+
+    .header-section .search-action .button-unstyled > .svg-wrapper {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .header-section .search-action .button-unstyled > span:not(.svg-wrapper) {
+      display: none;
+    }
+  }
+
+  /* LifeStride overrides: Mobile search in drawer mode */
+  @media screen and (max-width: 749px) {
+    #header-component[data-menu-style='drawer'] .header-section .search-action,
+    #header-component[data-menu-style='drawer'] .header__columns .search-action {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      grid-area: unset;
+    }
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}
