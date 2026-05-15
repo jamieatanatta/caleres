@@ -405,14 +405,7 @@
 
 /* Sale price: red color only when product is on sale (compare-at-price sibling exists) */
 .main-collection-grid product-price [ref="priceContainer"]:has(.compare-at-price) .price {
-  color: #e61531;
-}
-
-/* Compare-at-price: strikethrough with left padding (Horizon base already has line-through + opacity) */
-.main-collection-grid .compare-at-price {
-  opacity: 1;
-  padding-inline-start: 8px;
-  color: var(--color-foreground);
+  color: #cc2737 !important;
 }
 
 /* Product card: sharp corners matching source --shape-sharp-square: 0px */
@@ -428,19 +421,31 @@
   padding-inline: 10px;
 }
 
-/* Product title: bold weight matching source 14px/20px 700 */
-.main-collection-grid product-title .text-block {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.25px;
+/* Product title: bold weight matching design 14px/20px 700 */
+.main-collection-grid .product-card__content [ref='productTitleLink'] .text-block,
+.main-collection-grid .product-card__content [ref='productTitleLink'] .text-block.rte > * {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.25px !important;
+  color: var(--color-foreground);
 }
 
-/* Price typography: 16px/27.43px 600 weight matching source */
-.main-collection-grid product-price {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 27.43px;
+/* Price typography: sale price red+bold, compare-at lighter strikethrough */
+.main-collection-grid .product-card__content product-price,
+.main-collection-grid .product-card__content product-price .price,
+.main-collection-grid .product-card__content product-price .compare-at-price {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+.main-collection-grid .product-card__content product-price .compare-at-price {
+  font-weight: 400 !important;
+  color: #767676 !important;
+  opacity: 1 !important;
+  padding-inline-start: 8px;
+  text-decoration: line-through;
 }
 
 /* Card gallery: gray background matching source #f1f1f1 */
