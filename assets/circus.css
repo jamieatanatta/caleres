@@ -159,9 +159,9 @@
   }
 }
 
-/* Footer section: remove top padding via !important to override inline spacing-style */
+/* Footer section: top padding (space below yellow promo bar) */
 .footer-content.spacing-style {
-  padding-block-start: 0 !important;
+  padding-block-start: 32px !important;
 }
 
 /* Footer grid: desktop 5-column layout (4 menus + 1 wider signup group) */
