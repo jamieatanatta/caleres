@@ -1,0 +1,65 @@
+{% comment %}
+  Custom Fonts — LifeStride brand fonts
+
+  Declares @font-face rules for sofia-pro (body/subheading) and Juana (headings/accent),
+  then overrides Horizon's CSS custom properties so all theme components pick them up.
+
+  Must be rendered AFTER snippets/theme-styles-variables.liquid and snippets/color-schemes.liquid
+  in layout/theme.liquid <head> so CSS variable overrides take precedence.
+
+  Font files must be uploaded to theme assets:
+    - sofia-pro-light.woff2    (weight 300)
+    - sofia-pro-regular.woff2  (weight 400)
+    - sofia-pro-medium.woff2   (weight 500)
+    - juana-light.woff2        (weight 300)
+{% endcomment %}
+
+<style>
+  /* sofia-pro — Light (300) */
+  @font-face {
+    font-family: 'sofia-pro';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url('{{ "sofia-pro-light.woff2" | asset_url }}') format('woff2');
+  }
+
+  /* sofia-pro — Regular (400) */
+  @font-face {
+    font-family: 'sofia-pro';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('{{ "sofia-pro-regular.woff2" | asset_url }}') format('woff2');
+  }
+
+  /* sofia-pro — Medium (500) */
+  @font-face {
+    font-family: 'sofia-pro';
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    src: url('{{ "sofia-pro-medium.woff2" | asset_url }}') format('woff2');
+  }
+
+  /* Juana — Light (300) */
+  @font-face {
+    font-family: 'Juana';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url('{{ "juana-light.woff2" | asset_url }}') format('woff2');
+  }
+
+  /* Override Horizon font CSS variables with LifeStride brand fonts */
+  :root {
+    --font-body--family: 'sofia-pro', sans-serif;
+    --font-body--weight: 500;
+    --font-subheading--family: 'sofia-pro', sans-serif;
+    --font-subheading--weight: 500;
+    --font-heading--family: 'Juana', serif;
+    --font-heading--weight: 300;
+    --font-accent--family: 'Juana', serif;
+    --font-accent--weight: 300;
+  }
+</style>

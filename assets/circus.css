@@ -1,4 +1,73 @@
-/* Circus NY — custom overrides */
+/* LifeStride — brand design system overrides */
+
+/* ==========================================================================
+   Global Typography & Letter Spacing
+   Source uses sofia-pro with 1px letter-spacing on UI text throughout.
+   Heading font (Juana) uses weight 280-300 (ultra-light/light).
+   ========================================================================== */
+
+/* Body text: sofia-pro medium weight, 1px letter-spacing on UI elements */
+body {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Heading weight override: Juana light (300) for all heading presets */
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  letter-spacing: 0;
+}
+
+/* Subheading/UI text: sofia-pro gets 1px letter-spacing */
+.h5, .h6 {
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   Button Styling
+   Source: uppercase, sofia-pro medium (500), 1px letter-spacing,
+   min-height 44px, border 1px solid.
+   ========================================================================== */
+
+.button,
+.button--primary,
+.button--secondary,
+button[type="submit"] {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   Link Styling
+   Source: no underline by default, underline on hover.
+   ========================================================================== */
+
+a:not(.button) {
+  text-decoration: none;
+}
+
+a:not(.button):hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Page Layout — match source's site-wrap margins
+   Source: 30px margins on 1440px viewport (desktop), 10px on mobile.
+   ========================================================================== */
+
+:root {
+  --page-margin: 30px;
+
+  @media screen and (max-width: 749px) {
+    --page-margin: 10px;
+  }
+}
+
+/* ==========================================================================
+   Existing section-specific overrides (preserved from prior configuration)
+   ========================================================================== */
+
+/* Circus NY — custom overrides (legacy, preserved) */
 
 /* Featured collection: move sale badge below image instead of overlaying it */
 .section-resource-list .card-gallery .product-badges {
@@ -22,14 +91,7 @@
   font-weight: 700;
 }
 
-/* Featured collection: match source site's 30px page margins (1380px content on 1440px viewport) */
-.section-resource-list {
-  --page-margin: 30px;
-
-  @media screen and (max-width: 749px) {
-    --page-margin: 10px;
-  }
-}
+/* Featured collection: page margins inherited from global :root override */
 
 /* Featured collection: sharp product card corners matching source --shape-sharp-square: 0px */
 .section-resource-list .product-card {
@@ -214,7 +276,7 @@
   line-height: 20px;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  color: #000;
+  color: var(--color-foreground);
   margin: 0;
 }
 
@@ -227,7 +289,7 @@
 }
 
 .footer-content .menu__item a {
-  color: #000;
+  color: var(--color-foreground);
   font-weight: 400;
   text-decoration: none;
 }
@@ -253,8 +315,8 @@
   line-height: 28px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background-color: #333232;
-  color: #fff;
+  background-color: #565351;
+  color: #F2F0E8;
   min-height: 44px;
   min-width: 145px;
   flex-shrink: 0;
@@ -264,14 +326,14 @@
 }
 
 .footer-content .email-signup__button--text:hover {
-  background-color: #e9c437;
-  color: #333232;
-  border-color: #e9c437;
+  background-color: #F2F0E8;
+  color: #565351;
+  border-color: #565351;
 }
 
 /* Footer email signup input styling */
 .footer-content .email-signup__input {
-  border: 1px solid #333232;
+  border: 1px solid #565351;
   border-radius: 0;
   height: 44px;
   padding: 5px 10px;
@@ -279,7 +341,7 @@
 }
 
 .footer-content .email-signup__input::placeholder {
-  color: #333232;
+  color: #565351;
   font-weight: 600;
 }
 
