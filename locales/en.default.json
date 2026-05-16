@@ -32,6 +32,7 @@
     "header_navigation_label": "Primary",
     "nested_product": "{{ product_title }} for {{ parent_title }}",
     "new_window": "Opens in a new window.",
+    "next": "Next",
     "open_hotspot": "Open hotspot",
     "quantity": "Quantity",
     "pause_video": "Pause video",

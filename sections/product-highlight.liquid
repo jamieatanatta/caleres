@@ -1,0 +1,538 @@
+{% liquid
+  assign heading = section.settings.heading
+  assign description = section.settings.description
+  assign feature_image = section.settings.feature_image
+  assign feature_link = section.settings.feature_image_link
+  assign border_radius = section.settings.feature_image_border_radius
+%}
+
+<product-highlight-carousel
+  id="section-{{ section.id }}"
+  class="product-highlight color-{{ section.settings.color_scheme }}"
+  style="
+    --section-padding-top: {{ section.settings.padding-block-start }}px;
+    --section-padding-bottom: {{ section.settings.padding-block-end }}px;
+    --feature-border-radius: {{ border_radius }}px;
+  "
+>
+  <div class="product-highlight__inner">
+    <div class="product-highlight__left">
+      {% if heading != blank %}
+        <h2 class="product-highlight__heading">{{ heading | escape }}</h2>
+      {% endif %}
+
+      {% if description != blank %}
+        <div class="product-highlight__description">{{ description | escape }}</div>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <div class="product-highlight__carousel">
+          <div class="product-highlight__track" ref="track">
+            {% for block in section.blocks %}
+              <div class="product-highlight__slide" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  {{
+                    block.settings.image
+                    | image_url: width: block.settings.image.width
+                    | image_tag:
+                      sizes: '(min-width: 750px) 343px, 171px',
+                      widths: '171,343,400,686,800',
+                      loading: 'lazy',
+                      class: 'product-highlight__slide-image',
+                      alt: block.settings.image.alt
+                  }}
+                {% else %}
+                  <div class="product-highlight__slide-placeholder">
+                    {{ 'product-1' | placeholder_svg_tag: 'product-highlight__placeholder-svg' }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="product-highlight__nav">
+            <div class="product-highlight__dots" ref="dots"></div>
+            <button
+              class="product-highlight__next-btn"
+              type="button"
+              ref="nextBtn"
+              aria-label="{{ 'accessibility.next' | t | default: 'Next' }}"
+            >
+              <svg class="product-highlight__arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="product-highlight__right">
+      {% if feature_image != blank %}
+        {% if feature_link != blank %}
+          <a href="{{ feature_link }}" class="product-highlight__feature-link">
+        {% endif %}
+
+        {{
+          feature_image
+          | image_url: width: feature_image.width
+          | image_tag:
+            sizes: '(min-width: 750px) 41.667vw, 100vw',
+            widths: '375,550,750,1100,1500',
+            loading: 'lazy',
+            class: 'product-highlight__feature-image',
+            alt: feature_image.alt
+        }}
+
+        {% if feature_link != blank %}
+          </a>
+        {% endif %}
+      {% else %}
+        <div class="product-highlight__feature-placeholder">
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'product-highlight__placeholder-svg' }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</product-highlight-carousel>
+
+{% stylesheet %}
+  .product-highlight {
+    padding-block-start: var(--section-padding-top, 68px);
+    padding-block-end: var(--section-padding-bottom, 68px);
+    padding-inline: 60px;
+  }
+
+  .product-highlight__inner {
+    display: flex;
+    flex-direction: column;
+    max-width: 1320px;
+    margin-inline: auto;
+  }
+
+  .product-highlight__left {
+    width: 100%;
+  }
+
+  .product-highlight__right {
+    width: 100%;
+    align-self: center;
+  }
+
+  .product-highlight__heading {
+    font-family: var(--font-body--family);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 35px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    margin: 0 0 8px;
+  }
+
+  .product-highlight__description {
+    font-family: var(--font-body--family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: var(--color-foreground);
+    margin: 0 0 20px;
+  }
+
+  .product-highlight__track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-highlight__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-highlight__slide {
+    flex: 0 0 calc(50% - 8px);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+  .product-highlight__slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-highlight__slide-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-highlight__placeholder-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-highlight__nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    justify-content: center;
+    margin-block-start: 12px;
+  }
+
+  .product-highlight__dots {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .product-highlight__dot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 20px;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .product-highlight__dot::before {
+    content: '\2014';
+    font-size: 33px;
+    line-height: 20px;
+    color: #dddddd;
+  }
+
+  .product-highlight__dot--active::before {
+    color: #000000;
+  }
+
+  .product-highlight__dot:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+  }
+
+  .product-highlight__next-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    position: relative;
+    opacity: 0.8;
+    cursor: pointer;
+    padding: 0;
+    color: #000000;
+    z-index: 1;
+  }
+
+  .product-highlight__next-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .product-highlight__next-btn:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+  }
+
+  .product-highlight__arrow-icon {
+    position: relative;
+    z-index: 1;
+  }
+
+  .product-highlight__feature-link {
+    display: block;
+    text-decoration: none;
+    border-radius: var(--feature-border-radius, 16px);
+    overflow: hidden;
+  }
+
+  .product-highlight__feature-link:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+  }
+
+  .product-highlight__feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--feature-border-radius, 16px);
+  }
+
+  .product-highlight__feature-placeholder {
+    width: 100%;
+    aspect-ratio: 550 / 522;
+    background-color: #f0f0f0;
+    border-radius: var(--feature-border-radius, 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-highlight__inner {
+      flex-direction: row;
+    }
+
+    .product-highlight__left {
+      flex: 0 0 58.3333%;
+      padding-inline-end: 68px;
+    }
+
+    .product-highlight__right {
+      flex: 0 0 41.6667%;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-highlight {
+      padding-block-start: 28px;
+      padding-block-end: 44px;
+      padding-inline: 16px;
+    }
+
+    .product-highlight__left {
+      margin-block-end: 20px;
+    }
+  }
+{% endstylesheet %}
+
+<script>
+  if (!customElements.get('product-highlight-carousel')) {
+    class ProductHighlightCarousel extends HTMLElement {
+      connectedCallback() {
+        this.track = this.querySelector('[ref="track"]');
+        this.dotsContainer = this.querySelector('[ref="dots"]');
+        this.nextBtn = this.querySelector('[ref="nextBtn"]');
+        this.slides = this.track ? Array.from(this.track.children) : [];
+        this.currentPage = 0;
+        this.slidesPerPage = 2;
+
+        if (this.slides.length <= this.slidesPerPage) {
+          if (this.dotsContainer) this.dotsContainer.style.display = 'none';
+          if (this.nextBtn) this.nextBtn.style.display = 'none';
+          return;
+        }
+
+        this.totalPages = Math.ceil(this.slides.length / this.slidesPerPage);
+        this.buildDots();
+        this.bindEvents();
+      }
+
+      buildDots() {
+        if (!this.dotsContainer) return;
+        this.dotsContainer.innerHTML = '';
+
+        for (let i = 0; i < this.totalPages; i++) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'product-highlight__dot' + (i === 0 ? ' product-highlight__dot--active' : '');
+          dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
+          dot.dataset.page = i;
+          this.dotsContainer.appendChild(dot);
+        }
+      }
+
+      bindEvents() {
+        if (this.nextBtn) {
+          this.nextBtn.addEventListener('click', () => {
+            this.currentPage = (this.currentPage + 1) % this.totalPages;
+            this.scrollToPage(this.currentPage);
+          });
+        }
+
+        if (this.dotsContainer) {
+          this.dotsContainer.addEventListener('click', (e) => {
+            const dot = e.target.closest('.product-highlight__dot');
+            if (!dot) return;
+            this.currentPage = parseInt(dot.dataset.page, 10);
+            this.scrollToPage(this.currentPage);
+          });
+        }
+
+        if (this.track) {
+          let scrollTimeout;
+          this.track.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => this.updateDotsFromScroll(), 100);
+          });
+        }
+      }
+
+      scrollToPage(page) {
+        if (!this.track || !this.slides.length) return;
+        const slide = this.slides[0];
+        const slideWidth = slide.offsetWidth;
+        const gap = 16;
+        const scrollLeft = page * (slideWidth * this.slidesPerPage + gap * this.slidesPerPage);
+        this.track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        this.setActiveDot(page);
+      }
+
+      updateDotsFromScroll() {
+        if (!this.track || !this.slides.length) return;
+        const slide = this.slides[0];
+        const slideWidth = slide.offsetWidth;
+        const gap = 16;
+        const pageWidth = slideWidth * this.slidesPerPage + gap * this.slidesPerPage;
+        const nearestPage = Math.round(this.track.scrollLeft / pageWidth);
+        const clampedPage = Math.max(0, Math.min(nearestPage, this.totalPages - 1));
+
+        if (clampedPage !== this.currentPage) {
+          this.currentPage = clampedPage;
+          this.setActiveDot(clampedPage);
+        }
+      }
+
+      setActiveDot(page) {
+        if (!this.dotsContainer) return;
+        const dots = this.dotsContainer.querySelectorAll('.product-highlight__dot');
+
+        for (const dot of dots) {
+          dot.classList.remove('product-highlight__dot--active');
+        }
+
+        if (dots[page]) {
+          dots[page].classList.add('product-highlight__dot--active');
+        }
+      }
+    }
+
+    customElements.define('product-highlight-carousel', ProductHighlightCarousel);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "t:names.product_highlight_carousel",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:settings.heading",
+      "default": "EVERY STEP YOU TAKE COUNTS"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:settings.description",
+      "default": "Carefully designed to move with you, our shoes have been performance tested to last more than a million steps without breaking down."
+    },
+    {
+      "type": "header",
+      "content": "t:content.feature_media"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image",
+      "label": "t:settings.feature_image"
+    },
+    {
+      "type": "url",
+      "id": "feature_image_link",
+      "label": "t:settings.feature_image_link"
+    },
+    {
+      "type": "range",
+      "id": "feature_image_border_radius",
+      "label": "t:settings.feature_image_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 68
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 68
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:names.slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:settings.image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.product_highlight_carousel",
+      "blocks": {
+        "slide_1": {
+          "type": "slide"
+        },
+        "slide_2": {
+          "type": "slide"
+        },
+        "slide_3": {
+          "type": "slide"
+        },
+        "slide_4": {
+          "type": "slide"
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3", "slide_4"]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

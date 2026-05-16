@@ -334,108 +334,36 @@
       }
     },
     "product_highlight": {
-      "type": "hero",
+      "type": "product-highlight",
       "blocks": {
-        "ph_heading": {
-          "type": "text",
-          "settings": {
-            "text": "<p>LOW, WITH</p><p>A TWIST</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "h1",
-            "font": "var(--font-heading--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "#333232",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+        "slide_1": {
+          "type": "slide"
         },
-        "ph_subtitle": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Subtle height meets standout shape.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "#333232",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+        "slide_2": {
+          "type": "slide"
         },
-        "ph_button": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP THE CAIA",
-            "link": "/",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+        "slide_3": {
+          "type": "slide"
+        },
+        "slide_4": {
+          "type": "slide"
         }
       },
       "block_order": [
-        "ph_heading",
-        "ph_subtitle",
-        "ph_button"
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4"
       ],
       "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/cny-may-caia.jpg",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "full-width",
-        "section_height": "custom",
-        "section_height_custom": 77,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 96,
-        "padding-block-end": 40
+        "heading": "EVERY STEP YOU TAKE COUNTS",
+        "description": "Carefully designed to move with you, our shoes have been performance tested to last more than a million steps without breaking down.",
+        "feature_image": "shopify://shop_images/story-2-right-e6b11e155804.png",
+        "feature_image_link": "/",
+        "feature_image_border_radius": 16,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 68,
+        "padding-block-end": 68
       }
     },
     "sale_banner": {
